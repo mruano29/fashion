@@ -1,6 +1,10 @@
 # NAP Tech Web Dev Test By Manuel Ruano
 
-I have take the NAP tech dev test as start and have added react to create a frontend. 
+I have take the NAP tech dev test as start and have added react to create a frontend. I have used react-create-app to do it in a quickly way.
+
+You have to run npm start on your root folder and npm start on your frontend folder, the frontend is proxyed to the frontend, yo it can access to the data
+
+
 
 # NAP Tech Web Dev Test
 

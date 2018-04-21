@@ -1,13 +1,6 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
 
-class App extends Component {
-    // getInitialState: function() {
-    //   return {
-    //     members: []
-    //   };
-    // },
+class Catalogue extends Component {
 
     static state = {
         products: []
@@ -21,7 +14,7 @@ class App extends Component {
             .then(res => {
                 console.log(res)
                 return res.json()})
-            .then(products => this.setState({ products: products }));
+            .then(products => this.setState({ products: products }))
     }
 
     render() {
@@ -43,11 +36,11 @@ class App extends Component {
         })
 
         return (
-          <div className="App">
+          <div className="catalogue">
             {data}
           </div>
         );
     }
     }
 
-export default App;
+export default Catalogue
