@@ -14,7 +14,7 @@ const DEFAULT_PARAMS = {
 class Catalogue extends Component {
 
     state = {
-        items: []
+        data: []
     }
 
     componentDidMount() {
@@ -27,18 +27,16 @@ class Catalogue extends Component {
         const endpoint = '/api/products'
 
         CreateRequest(endpoint, params)()
-            .then(items => this.setState({ items: items.data }))
+            .then(items => {
+                console.log('items', items)
+                return this.setState({ ...items })})
     }
 
     render() {
         //@TODO create a product component, a filter component, pass to product-card the filtered data
         // use the catalogue serice to fetch data.
 
-        const { state } = this
-
-        const data = state.items
-
-        console.log('data', data.length)
+        const { data, limit, offset, total } = this.state
 
         const productCards = data.map(item => {
             return (
@@ -52,7 +50,9 @@ class Catalogue extends Component {
         return (
             <div className="catalogue">
                 <Pagination {...{
-                    total: data.length,
+                    limit,
+                    offset,
+                    total,
                     updateData: this.updateData.bind(this) //@TODO this bind(this) is unperformant and I have to update it
                 }}/>
                 <Filters {...{

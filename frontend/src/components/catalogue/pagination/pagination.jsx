@@ -8,7 +8,9 @@ class Pagination extends Component {
     }
 
     onChange = e => {
-        console.log(this.props)
+
+        console.log('this.props', this.props)
+        console.log(e)
         this.setState({
             value: e.target.value
         })
@@ -19,20 +21,33 @@ class Pagination extends Component {
         })
     }
 
-    paginationBar = items => {
-        console.log('items', items)
-        console.log('this', this.props.total)
+    onPaginateUpdate = pageNumber => {
+        this.props.updateData({
+            limit: (this.state.value * pageNumber) + pageNumber,
+            offset: this.state.value * pageNumber
+        })
+    }
 
-        // <li><a href="#">Previous</a></li>
-        // <li><a href="#">Next</a></li>
-        return <li><a href="#">1</a></li>
+    paginationBar = visible => {
+
+        const n = Math.ceil(this.props.total / visible)
+
+        if(n) {
+            return Array(n).fill().map((_, i) => {
+                return <li key={i}>
+                    <div value={i} onClick={() => this.onPaginateUpdate(i)}>
+                        {i + 1}
+                    </div>
+                </li>
+            })
+        }
     }
 
     render() {
 
-        const { onChange, paginationBar, state } = this
+        const { onChange, paginationBar, props, state } = this
 
-        console.log(this.props.total)
+        console.log(props)
 
         // @TODO show per page and pagination
 
