@@ -2,7 +2,7 @@
 
 I have take the NAP tech dev test as start and have added react to create a frontend. I have used react-create-app to set up the project quickly.
 
-The frontend is proxyed to the backend to have access to the endpoints/data.
+The frontend is proxied to the backend to have access to the endpoints/data.
 
 
 ## Setup
@@ -10,6 +10,7 @@ The frontend is proxyed to the backend to have access to the endpoints/data.
 To run the app.
 
 root && root/frontend
+install and run in both folder
 ```shell
 $ npm install
 $ npm start
