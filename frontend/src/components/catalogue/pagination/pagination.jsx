@@ -24,8 +24,8 @@ class Pagination extends Component {
 
     onPaginateUpdate = pageNumber => {
 
-        document.getElementById(`selected-${pageNumber}`).classList.add('selected')
-        document.getElementById(`selected-${this.state.selected}`).classList.remove('selected')
+        document.getElementById(`selected-${pageNumber}`) && document.getElementById(`selected-${pageNumber}`).classList.add('selected')
+        document.getElementById(`selected-${this.state.selected}`) && document.getElementById(`selected-${this.state.selected}`).classList.remove('selected')
 
         this.props.updateData({
             limit: this.state.value * pageNumber,
