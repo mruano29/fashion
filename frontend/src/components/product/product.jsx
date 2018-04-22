@@ -1,20 +1,33 @@
 import React, { Component } from 'react'
+import CreateRequest from '../../utils/create-request'
 
 
 class Product extends Component {
 
+    constructor(props) {
+
+        super(props)
+
+        this.item = CreateRequest(this.props.location.pathname)()
+            .then(item => this.setState({ item: item }))
+    }
+
     render() {
+        // @TODO solve this initial state
+        if(!this.state) {
+            return null
+        }
 
-        // console.log(this.props.location.state)
-
-        const { state } = this.props.location
+        const { item  } = this.state
 
         return (
             <div>
-                <h1>{state.name}</h1>
-                <h1>{state.designer}</h1>
-                <h1>{state.price}</h1>
-                <img src={state.image.outfit} />
+                <h1>{item.name}</h1>
+                <h1>{item.designer}</h1>
+                <h1>{item.price}</h1>
+                <img src={item.images.outfit} alt={item.images.outfit} />
+                <img src={item.images.large} alt={item.images.large} />
+                <img src={item.images.small} alt={item.images.small} />
             </div>
         )
     }

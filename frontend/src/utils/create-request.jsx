@@ -5,7 +5,7 @@ export default(
 	params = {}
 ) => {
 
-	// console.log(params)
+	console.log('params', `${endpoint}${parseParams(params)}`)
 
 	return async () => {
 		const response = await fetch(`${endpoint}${parseParams(params)}`)

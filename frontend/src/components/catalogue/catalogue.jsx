@@ -13,8 +13,14 @@ const DEFAULT_PARAMS = {
 
 class Catalogue extends Component {
 
-    state = {
-        data: []
+    constructor(props) {
+        super(props)
+
+        this.updateData = this.updateData.bind(this)
+
+        this.state = {
+          data: []
+        }
     }
 
     componentDidMount() {
@@ -27,9 +33,7 @@ class Catalogue extends Component {
         const endpoint = '/api/products'
 
         CreateRequest(endpoint, params)()
-            .then(items => {
-                console.log('items', items)
-                return this.setState({ ...items })})
+            .then(items => this.setState({ ...items }))
     }
 
     render() {
@@ -53,10 +57,11 @@ class Catalogue extends Component {
                     limit,
                     offset,
                     total,
-                    updateData: this.updateData.bind(this) //@TODO this bind(this) is unperformant and I have to update it
+                    updateData: this.updateData,
                 }}/>
                 <Filters {...{
-                    data
+                    data,
+                    updateData: this.updateData,
                 }}/>
                 <div className="cards">
                     {productCards}
