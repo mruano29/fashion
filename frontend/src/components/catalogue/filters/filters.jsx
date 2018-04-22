@@ -15,6 +15,8 @@ class Filters extends Component {
 
         this.props.updateData({
             sortBy: e.target.value,
+            limit: this.props.limit,
+            offset: this.props.offset
         })
     }
 

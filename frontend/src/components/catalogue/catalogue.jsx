@@ -40,6 +40,12 @@ class Catalogue extends Component {
 
         const { data, limit, offset, total } = this.state
 
+        const params = {
+            limit,
+            offset,
+            total
+        }
+
         const productCards = data.map(item => {
             return (
                 <ProductCard {...{
@@ -54,13 +60,12 @@ class Catalogue extends Component {
                 <div className="catalogue-container">
                     <div className="catalogue-header">
                         <Filters {...{
+                            ...params,
                             data,
                             updateData: this.updateData,
                         }}/>
                         <Pagination {...{
-                            limit,
-                            offset,
-                            total,
+                            ...params,
                             updateData: this.updateData,
                         }}/>
                     </div>
