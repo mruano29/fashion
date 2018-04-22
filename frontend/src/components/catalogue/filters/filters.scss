@@ -9,3 +9,9 @@ $size: 12px;
     font-weight: lighter;
     border: none;
 }
+
+@media only screen and (max-width: 600px) {
+    .filters {
+        margin-left: $size * 2;
+    }
+}

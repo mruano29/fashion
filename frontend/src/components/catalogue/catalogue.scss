@@ -37,4 +37,10 @@ $width: $size * 84;
         width: 100%;
         justify-content: center;
     }
+
+    .catalogue-container {
+        .catalogue-header {
+            width: 100%;
+        }
+    }
 }

@@ -9,7 +9,7 @@ The frontend is proxyed to the backend to have access to the endpoints/data.
 
 To run the app.
 
-root/frontend
+root && root/frontend
 ```shell
 $ npm install
 $ npm start
@@ -19,13 +19,6 @@ or
 ```shell
 $ yarn
 $ yarn start
-```
-
-
-root
-```shell
-$ npm install
-$ npm start
 ```
 
 should run on localhost:3000

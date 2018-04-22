@@ -30,3 +30,9 @@ $size: 12px;
     font-weight: lighter;
     border: none;
 }
+
+@media only screen and (max-width: 600px) {
+    .pagination-container {
+        margin-right: $size * 2;
+    }
+}
