@@ -7,9 +7,13 @@ class Filters extends Component {
         value: ''
     }
 
-    change = e => {
+    onChange = e => {
         this.setState({
             value: e.target.value
+        })
+
+        this.props.updateData({
+            sortBy: e.target.value,
         })
     }
 
@@ -19,21 +23,18 @@ class Filters extends Component {
 
     render() {
 
-        // console.log(this.props)
+        const { onChange, state } = this
 
-        const sortFilter = <select onChange={this.change} value={this.state.value}>
+        const sortFilter = <select onChange={onChange} value={state.value}>
                 <option value="">Sort By</option>
                 <option value="low-high">Price Low to High</option>
                 <option value="high-low">Price High to Low</option>
                 <option value="name">Name</option>
             </select>
 
-        const designerFilter = <div>holi</div>
-
         return (
             <div>
                 <div>{sortFilter}</div>
-                <div>{designerFilter}</div>
             </div>
         )
     }

@@ -9,8 +9,6 @@ class Pagination extends Component {
 
     onChange = e => {
 
-        console.log('this.props', this.props)
-        console.log(e)
         this.setState({
             value: e.target.value
         })
@@ -23,7 +21,7 @@ class Pagination extends Component {
 
     onPaginateUpdate = pageNumber => {
         this.props.updateData({
-            limit: (this.state.value * pageNumber) + pageNumber,
+            limit: this.state.value * pageNumber,
             offset: this.state.value * pageNumber
         })
     }
@@ -35,9 +33,9 @@ class Pagination extends Component {
         if(n) {
             return Array(n).fill().map((_, i) => {
                 return <li key={i}>
-                    <div value={i} onClick={() => this.onPaginateUpdate(i)}>
+                    <button value={i} onClick={() => this.onPaginateUpdate(i)}>
                         {i + 1}
-                    </div>
+                    </button>
                 </li>
             })
         }
@@ -45,23 +43,17 @@ class Pagination extends Component {
 
     render() {
 
-        const { onChange, paginationBar, props, state } = this
-
-        console.log(props)
-
-        // @TODO show per page and pagination
+        const { onChange, paginationBar, state } = this
 
         const showSelected = <select {...{
                 onChange: onChange,
                 value: state.value
             }}>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
+                <option value={20}>20</option>
+                <option value={50}>50</option>
+                <option value={100}>100</option>
             </select>
 
-        // console.log(state.value)
 
         return (
             <div>
