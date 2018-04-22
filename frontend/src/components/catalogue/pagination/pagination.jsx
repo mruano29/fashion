@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 
+import './pagination.scss'
+
 
 class Pagination extends Component {
 
     state = {
-        value: 50
+        value: 50,
+        selected: 1
     }
 
     onChange = e => {
@@ -20,9 +23,17 @@ class Pagination extends Component {
     }
 
     onPaginateUpdate = pageNumber => {
+
+        document.getElementById(`selected-${pageNumber}`).classList.add('selected')
+        document.getElementById(`selected-${this.state.selected}`).classList.remove('selected')
+
         this.props.updateData({
             limit: this.state.value * pageNumber,
             offset: this.state.value * pageNumber
+        })
+
+        this.setState({
+            selected: pageNumber
         })
     }
 
@@ -32,10 +43,10 @@ class Pagination extends Component {
 
         if(n) {
             return Array(n).fill().map((_, i) => {
-                return <li key={i}>
-                    <button value={i} onClick={() => this.onPaginateUpdate(i)}>
+                return <li key={i} id={`selected-${i}`}>
+                    <a value={i} onClick={() => this.onPaginateUpdate(i)}>
                         {i + 1}
-                    </button>
+                    </a>
                 </li>
             })
         }
@@ -45,22 +56,18 @@ class Pagination extends Component {
 
         const { onChange, paginationBar, state } = this
 
-        const showSelected = <select {...{
-                onChange: onChange,
-                value: state.value
-            }}>
-                <option value={20}>20</option>
-                <option value={50}>50</option>
-                <option value={100}>100</option>
-            </select>
-
-
         return (
-            <div>
-                {showSelected}
-
+            <div className="pagination-container">
+                <select {...{
+                    className: "pagination-select",
+                    onChange: onChange,
+                    value: state.value
+                }}>
+                    <option value={50}>50</option>
+                    <option value={100}>100</option>
+                </select>
                 <nav>
-                    <ul className="pagination">
+                    <ul className="pagination-buttons">
                         {paginationBar(state.value)}
                     </ul>
                 </nav>

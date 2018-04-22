@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import './filters.scss'
 
 class Filters extends Component {
 
@@ -17,15 +18,11 @@ class Filters extends Component {
         })
     }
 
-    //@TODO add a clear filter button
-    // Filters ===> Price hight to low, low to high
-    // <option value="designer">Designer</option>
-
     render() {
 
         const { onChange, state } = this
 
-        const sortFilter = <select onChange={onChange} value={state.value}>
+        const sortFilter = <select className="filter-select" onChange={onChange} value={state.value}>
                 <option value="">Sort By</option>
                 <option value="low-high">Price Low to High</option>
                 <option value="high-low">Price High to Low</option>
@@ -33,8 +30,8 @@ class Filters extends Component {
             </select>
 
         return (
-            <div>
-                <div>{sortFilter}</div>
+            <div className="filters">
+                {sortFilter}
             </div>
         )
     }

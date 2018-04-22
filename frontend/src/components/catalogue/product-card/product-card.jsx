@@ -10,13 +10,16 @@ const ProductCard = ({ item }) => {
         pathname: `/api/product/${item.id}`
     }
 
-    //@TODO do something with the broken links
-
     return (
-        <div>
+        <div className="card-container">
             <Link to={newTo}>
-                {item.price}
                 <img src={item.image.outfit} alt={item.name}/>
+                <div className="card-description">
+                    {item.name}
+                </div>
+                <div className="card-price">
+                    {item.price}
+                </div>
             </Link>
         </div>
     )

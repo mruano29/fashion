@@ -37,8 +37,6 @@ class Catalogue extends Component {
     }
 
     render() {
-        //@TODO create a product component, a filter component, pass to product-card the filtered data
-        // use the catalogue serice to fetch data.
 
         const { data, limit, offset, total } = this.state
 
@@ -53,17 +51,21 @@ class Catalogue extends Component {
 
         return (
             <div className="catalogue">
-                <Pagination {...{
-                    limit,
-                    offset,
-                    total,
-                    updateData: this.updateData,
-                }}/>
-                <Filters {...{
-                    data,
-                    updateData: this.updateData,
-                }}/>
-                <div className="cards">
+                <div className="catalogue-container">
+                    <div className="catalogue-header">
+                        <Filters {...{
+                            data,
+                            updateData: this.updateData,
+                        }}/>
+                        <Pagination {...{
+                            limit,
+                            offset,
+                            total,
+                            updateData: this.updateData,
+                        }}/>
+                    </div>
+                </div>
+                <div className="catalogue-cards">
                     {productCards}
                 </div>
             </div>

@@ -1,0 +1,45 @@
+
+$size: 12px;
+
+.card-container {
+    width: $size * 15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: $size * 2;
+    margin-left: $size * 2;
+    margin-top: $size * 2;
+    border-radius: $size / 3;
+
+    &:hover {
+        background-color: rgba(220, 220, 220, 0.1);
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
+
+        &:visited {
+            color: #6a7b84;
+        }
+    }
+
+    .card-description {
+        height: $size * 4;
+        margin-top: $size;
+        font-size: $size + 1;
+    }
+
+    .card-price {
+        margin-top: $size;
+        font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .card-container {
+        padding: 0;
+        margin-bottom: $size * 4;
+    }
+}

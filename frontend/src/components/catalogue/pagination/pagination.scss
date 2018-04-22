@@ -1,0 +1,32 @@
+
+$size: 12px;
+
+.pagination-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.pagination-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: $size * 15;
+
+    list-style-type: none;
+
+    a {
+        margin: 0 $size/2;
+        font-size: $size;
+        cursor: pointer;
+    }
+
+    .selected {
+        background-color: #e7e7e7;
+    }
+}
+
+.pagination-select {
+    font-weight: lighter;
+    border: none;
+}
