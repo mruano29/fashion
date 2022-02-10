@@ -17,7 +17,7 @@
     "lodash": "^2.4.1"
   },
   "devDependencies": {
-    "node-sass": "^4.8.3",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.0.1"
   }
 }
